@@ -1,0 +1,12 @@
+.mapH {
+    background-color: #ffcc4d;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.mapH>h4 {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: 'Bree Serif', serif;
+}
