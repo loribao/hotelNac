@@ -1,0 +1,2 @@
+instalar o certbot e gerar o certificado ssl 1 ano:
+https://certbot.eff.org/lets-encrypt/ubuntubionic-other
