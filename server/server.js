@@ -1,14 +1,29 @@
 'use strict';
 const app = require('../app/app');
-const http = require('http');
+const https = require('https');
 const debug = require('debug')('nodestr:server');
+const fs = require('fs');
+const path = require('path');
+const os = require('os');
+
+const configuracaoHttps = {
+    key: fs.readFileSync(path.join(__dirname,'ssl','server.key')),
+    cert: fs.readFileSync(path.join(__dirname,'ssl','server.crt'))
+};
+
 //Configura o servidor com o app
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '3001');
 app.set('port', port);
-const server = http.createServer(app);
+const server = https.createServer(configuracaoHttps,app).listen(port,() => {
+    const addr = server.address();
+    const bind = typeof addr === 'string' ?
+        'pipe' + addr :
+        'port' + addr.port;
+    debug('Iniciado ' + bind)
+});
 
 //Tratativa de eventos do servidor
-server.listen(port);
+
 server.on('error', (error) => {
     if (error.syscall != 'listen') {
         throw error;
@@ -33,15 +48,8 @@ server.on('error', (error) => {
 
 });
 
-server.on('listening', () => {
-    const addr = server.address();
-    const bind = typeof addr === 'string' ?
-        'pipe' + addr :
-        'port' + addr.port;
-    debug('Iniciado ' + bind);
 
-});
-console.log('Servidor rodando em --> www.localhost:' + port);
+console.log('\n\n Plataforma de serviço '+ os.platform(),'\n Servidor rodando em --> https://localhost:' + port);
 
 function normalizePort(val) {
     const port = parseInt(val, 10);
