@@ -4,6 +4,6 @@
 <hr/><br/>
 
 
-### Etapa 1 - Configurações basicas nodejs e ferramentas
-####  Express: Server, App e Diretorios; Docker e Docker-compose; git 
-![](./img/myTemplateMVC.png)
+* ### Etapa 1 - Configurações basicas nodejs e ferramentas
+ * #### Express: Server, App e Diretorios; Docker e Docker-compose; git 
+   * ![](./img/myTemplateMVC.png)
