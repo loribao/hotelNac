@@ -8,8 +8,8 @@ const path = require('path');
 const os = require('os');
 
 //Portas de acesso ao protocolo http ou https 
-const httpPort = '80';
-const httpsPort = '443';
+const httpPort = '3000';
+const httpsPort = '3001';
 
 
 const configuracaoHttps = {

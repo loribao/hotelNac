@@ -3,15 +3,9 @@ const bodyParser = require('body-parser');
 const expressLayouts = require('express-ejs-layouts')
 
 const app = express();
-app.use(express.static('./public'))
 
-//const router = express.Router(); não esta sendo usado neste arquivo, afim  de efetuar debug estou deixando(mas é desnecessario para producao)
-/*
- **Rotas  aqui
- */
+app.use(express.static('./public'));
 
-const rotaIndex = require('../routes/index-rota');
-const rotaMaps = require('../routes/maps-rota');
 /*
  ** abaixo uma função para converter a resposta do servirdor em json
  ** e normalizar a url 
@@ -27,6 +21,13 @@ app.use(bodyParser.urlencoded({
 app.set("view engine", 'ejs');
 app.use(expressLayouts)
 
+//const router = express.Router(); não esta sendo usado neste arquivo, afim  de efetuar debug estou deixando(mas é desnecessario para producao)
+/*
+ **Rotas  aqui
+ */
+
+const rotaIndex = require('../routes/index-rota');
+const rotaMaps = require('../routes/maps-rota');
 
 /*
  ** associacao da rota com o arquivo de rota

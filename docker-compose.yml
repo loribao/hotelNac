@@ -5,8 +5,8 @@ services:
     restart: always
     build: .
     ports:
-      - "80:80"
-      - "443:443"
+      - "3000:80"
+      - "3001:443"
     volumes:
       - ./apps:/app
     links:
@@ -15,6 +15,6 @@ services:
     container_name: mongoTeste
     image: mongo
     volumes:
-      - ./database/mongo:/data/db
+      - ./data/mongo:/data/db
     ports:
-      - "3000:27017"
+      - "3003:27017"
