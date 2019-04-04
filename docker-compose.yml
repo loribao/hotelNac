@@ -1,10 +1,19 @@
 version: "3"
-
 services:
   app:
+    container_name: appTeste
+    restart: always
     build: .
-    command: npm start
     ports:
-     - "3001:3001"
+      - "3001:3001"
     volumes:
-     - .:/usr/app
+      - ./apps:/app
+    links:
+      - mongo
+  mongo:
+    container_name: mongoTeste
+    image: mongo
+    volumes:
+      - ./database/mongo:/data/db
+    ports:
+      - "27017:27017"
