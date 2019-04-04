@@ -5,8 +5,8 @@ services:
     restart: always
     build: .
     ports:
-      - "3000:80"
-      - "3001:443"
+      - "3000:3000"
+      - "3001:30001"
     volumes:
       - ./apps:/app
     links:
