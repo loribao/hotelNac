@@ -4,6 +4,7 @@ const expressLayouts = require('express-ejs-layouts')
 
 const app = express();
 app.use(express.static('./public'))
+
 //const router = express.Router(); não esta sendo usado neste arquivo, afim  de efetuar debug estou deixando(mas é desnecessario para producao)
 /*
  **Rotas  aqui

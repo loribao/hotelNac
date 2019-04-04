@@ -15,7 +15,6 @@
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-ejs-layouts": "^2.5.0",
-    "http": "0.0.0",
     "https": "^1.0.0",
     "supervisor": "^0.12.0"
   }

@@ -1,18 +1,28 @@
 'use strict';
 const app = require('../app/app');
 const https = require('https');
+const http = require('http');
 const debug = require('debug')('nodestr:server');
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
+
+//Portas de acesso ao protocolo http ou https 
+const httpPort = '80';
+const httpsPort = '443';
+
 
 const configuracaoHttps = {
     key: fs.readFileSync(path.join(__dirname,'ssl','server.key')),
     cert: fs.readFileSync(path.join(__dirname,'ssl','server.crt'))
 };
 
+
+http.createServer(app).listen(httpPort,()=>{
+        console.log(' Servidor http rodando em -->  http://localhost:'+httpPort);
+});
 //Configura o servidor com o app
-const port = normalizePort(process.env.PORT || '3001');
+const port = normalizePort(process.env.PORT || httpsPort);
 app.set('port', port);
 const server = https.createServer(configuracaoHttps,app).listen(port,() => {
     const addr = server.address();
@@ -49,7 +59,7 @@ server.on('error', (error) => {
 });
 
 
-console.log('\n\n Plataforma de serviço '+ os.platform(),'\n Servidor rodando em --> https://localhost:' + port);
+console.log('\n\n Plataforma de serviço '+ os.platform(),'\n Servidor https rodando em --> https://localhost:' + port);
 
 function normalizePort(val) {
     const port = parseInt(val, 10);
