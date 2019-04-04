@@ -19,7 +19,7 @@ const configuracaoHttps = {
 
 
 http.createServer(app).listen(httpPort,()=>{
-        console.log(' Servidor http rodando em --> '+dominio+':'+httpPort);
+        console.log(' Servidor http rodando em --> http://'+dominio+':'+httpPort);
 });
 //Configura o servidor com o app
 const port = normalizePort(process.env.PORT || httpsPort);
@@ -59,7 +59,7 @@ server.on('error', (error) => {
 });
 
 
-console.log('\n\n Plataforma de serviço '+ os.platform(),'\n Servidor https rodando em --> '+dominio+':'+ port);
+console.log('\n\n Plataforma de serviço '+ os.platform(),'\n Servidor https rodando em --> https://'+dominio+':'+ port);
 
 function normalizePort(val) {
     const port = parseInt(val, 10);
