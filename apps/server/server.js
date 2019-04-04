@@ -10,7 +10,7 @@ const os = require('os');
 //Portas de acesso ao protocolo http ou https 
 const httpPort = '3000';
 const httpsPort = '3001';
-
+const dominio = 'alunosenac.ddns.net';
 
 const configuracaoHttps = {
     key: fs.readFileSync(path.join(__dirname,'ssl','server.key')),
@@ -19,7 +19,7 @@ const configuracaoHttps = {
 
 
 http.createServer(app).listen(httpPort,()=>{
-        console.log(' Servidor http rodando em -->  http://localhost:'+httpPort);
+        console.log(' Servidor http rodando em --> '+dominio+':'+httpPort);
 });
 //Configura o servidor com o app
 const port = normalizePort(process.env.PORT || httpsPort);
@@ -59,7 +59,7 @@ server.on('error', (error) => {
 });
 
 
-console.log('\n\n Plataforma de serviço '+ os.platform(),'\n Servidor https rodando em --> https://localhost:' + port);
+console.log('\n\n Plataforma de serviço '+ os.platform(),'\n Servidor https rodando em --> '+dominio+':'+ port);
 
 function normalizePort(val) {
     const port = parseInt(val, 10);
