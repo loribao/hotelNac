@@ -33,22 +33,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
     <title>
         <%= title %>
     </title>
 
     <script>
         $(document).ready(function () {
+
             $(".btn1").click(function () {
-                $("p").slideDown();
-                $(".btn1").hide();
-                $(".btn2").show();
+                $(".conteudo").slideToggle();
+
             });
             $(".btn2").click(function () {
-                $("p").slideUp();
-                $(".btn1").show();
-                $(".btn2").hide();
+                $(".conteudo2").slideToggle();
+
             });
+            $(".btn3").click(function () {
+                $(".conteudo3").slideToggle();
+
+            });
+            $(".btn4").click(function () {
+                $(".conteudo4").slideToggle();
+
+            });
+            $(".btn5").click(function () {
+                $(".conteudo5").slideToggle();
+
+            });
+
         });
     </script>
 
